@@ -1,9 +1,5 @@
 package main
-import (
-	"fmt"
-	"os"
-	"os/exec"
-)
+import ("fmt")
 
 type bahanMakanan struct{
 	nama string
@@ -21,12 +17,6 @@ func main(){
 	penutup()
 }
 
-func clear() {
-	cmd := exec.Command("cmd", "/c", "cls")
-	cmd.Stdout = os.Stdout
-	cmd.Run()
-}
-
 func menu(){
 	fmt.Println("\n===== Aplikasi Manajemen Stok Bahan Makanan =====")
 	fmt.Println("1. Tambah Stok Bahan Makanan")
@@ -35,7 +25,7 @@ func menu(){
 	fmt.Println("4. Hapus Stok Bahan Makanan")
 	fmt.Println("5. Urutkan Stok")
 	fmt.Println("6. Peringatan Kadaluwarsa")
-	fmt.Println("7. Laporan Total")
+	fmt.Println("7. Laporan Total Jumlah stok")
 	fmt.Println("8. Cari Stok")
 	fmt.Println("9. Cari Stok Terbanyak/ Terendah")
 	fmt.Println("0. Keluar")
@@ -144,8 +134,8 @@ func tampilkanStok(b inventori){
 		if b[i].nama != ""{
 		fmt.Printf("%d. %s, %d, %s",nomor, b[i].nama, b[i].stok, b[i].tanggalKadaluwarsa)
 		fmt.Println()
-		}
 		nomor++
+		}
 	}
 	fmt.Println()
 }
@@ -163,8 +153,8 @@ func ubahData(b *inventori){
 			ditemukan = true
 			fmt.Println("Data Ditemukan!!!")
 			fmt.Println("Nama: ", b[i].nama)
-			fmt.Println("Nama: ", b[i].stok)
-			fmt.Println("Nama: ", b[i].tanggalKadaluwarsa)
+			fmt.Println("Jumlah Stok: ", b[i].stok)
+			fmt.Println("Tanggal Kadaluwarsa: ", b[i].tanggalKadaluwarsa)
 			
 			fmt.Printf("\nMasukkan Nama Bahan Baru: ")
 			fmt.Printf("\nNama: ")
